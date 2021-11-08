@@ -1,0 +1,96 @@
+<template>
+  <div id="food-container">
+    <el-card :body-style="{ padding: '0px' }">
+      <el-row type="flex" justify="space-between">
+        <el-col :span="12">
+          <el-image fit="contain" src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png" 
+            class="image"/>
+        </el-col>
+        <el-divider class="vertical" direction="vertical"></el-divider>
+        <el-col v-if="foodDetails.id" class="food-info" :span="12">
+          <el-divider class="horizontal"></el-divider>
+          <h4 class="title">{{ isEnglish ? foodDetails.name.english : foodDetails.name.chinese }}</h4>
+          <el-divider class="horizontal"></el-divider>
+          <!-- <p class="description">{{ foodDetails.name.english }}</p> -->
+          <el-row type="flex" justify="center">
+            <el-input-number :min="0" class="amount" size="large" v-model="amount"></el-input-number>
+          </el-row>
+        </el-col>
+      </el-row>
+    </el-card>
+  </div>
+</template>
+
+<script>
+import { foods } from  '@/constants/foods.js'
+export default {
+  props: {
+    id: {
+      type: Number,
+      required: true
+    },
+    language: {
+      type: String,
+      required: true,
+    }
+  },
+  data() {
+    return {
+      foodDetails: {},
+      amount: 0,
+    }
+  },
+  computed: {
+    isEnglish() {return this.language == 'english'},
+  },
+  mounted() {
+    this.foodDetails = foods.find(el => el.id == this.id)
+  },
+  watch: {
+    amount() {
+      this.$emit('amountChange', {
+        id: this.id,
+        name: this.foodDetails.name,
+        amount: this.amount
+      })
+    }
+  }
+}
+</script>
+
+<style lang="scss">
+#food-container {
+  .image {
+    width: 100%;
+    height: 100%;
+  }
+
+  .title {
+    margin: 0;
+    text-align: center;
+  }
+
+  .description {
+    margin: 0 0.5rem;
+  }
+
+  .el-divider {
+    &.horizontal {
+      margin: 0.3rem auto;
+      width: 9rem;
+    }
+    &.vertical {
+      margin: auto 0.3rem;
+      height: 9rem;
+      }
+  }
+  
+  .food-info {
+    margin: auto 0;
+  }
+
+  .amount {
+    margin-top: 2rem;
+  }
+}
+</style>
