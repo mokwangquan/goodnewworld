@@ -1,5 +1,9 @@
 // vue.config.js
 
+module.exports = {
+  publicPath: '/goodnewworld'
+}
+
 let dateStamp = new Date()
 let year = ""+dateStamp.getFullYear()
 let month = ""+(dateStamp.getMonth()+1)
