@@ -3,7 +3,7 @@
     <el-card :body-style="{ padding: '0px' }">
       <el-row type="flex" justify="space-between">
         <el-col :span="12">
-          <el-image fit="contain" src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png" 
+          <img fit="contain" :src="getImgUrl(id)"
             class="image"/>
         </el-col>
         <el-divider class="vertical" direction="vertical"></el-divider>
@@ -38,6 +38,12 @@ export default {
     return {
       foodDetails: {},
       amount: 0,
+    }
+  },
+  methods: {
+    getImgUrl(id) {
+      let images = require.context('../assets/foods/', false, /\.jpeg$/)
+      return images('./' + id + ".jpeg")
     }
   },
   computed: {
