@@ -1,9 +1,5 @@
 // vue.config.js
 
-module.exports = {
-  publicPath: '/goodnewworld'
-}
-
 let dateStamp = new Date()
 let year = ""+dateStamp.getFullYear()
 let month = ""+(dateStamp.getMonth()+1)
@@ -27,6 +23,7 @@ let plugins = [];
 // plugins.push(new BundleAnalyzerPlugin()); 
 
 module.exports = {
+  publicPath: '/goodnewworld',
   configureWebpack: {
     output: {
       filename: `js/${filename}.min.js`,
