@@ -3,7 +3,7 @@
   <div id="app">
     <sidebar 
       v-show="showMenu" 
-      @changeAmount="handleCartChangeAmount"
+      @remove="handleDeleteFromCart"
       :language="language"
       :orders="orders"/>
     <el-radio-group class="language-selection" size="mini" v-model="language">
@@ -27,7 +27,8 @@
         :key="el.id"
         :id="el.id"
         :language="language"
-        @amountChange="handleAmountChange"
+        :remove="removeId"
+        @sizeChange="handleSizeChange"
         />
       </template>
       
@@ -62,25 +63,27 @@ export default {
       allFoods: allFoodType,
 
       orders: [],
+      removeId: null,
     }
   },
   methods: {
-    handleAmountChange({id, name, amount}) {
+    handleSizeChange({id, name, size}) {
+      console.log(size)
+      if (size == 'none') return
       let alrdyHave = this.orders.findIndex(el => el.id == id) >= 0
       if (alrdyHave) {
         this.orders.map(el => {
-          if (el.id == id) el.amount = amount
+          if (el.id == id) el.size = size
           return el
         })
       } else {
-        this.orders.push({id, name, amount})
+        this.orders.push({id, name, size})
       }
     },
-    handleCartChangeAmount({id, amount}) {
-      this.orders.map(el => {
-        if (el.id == id) el.amount += amount
-      })
-      this.orders = this.orders.filter(el => el.amount != 0)
+    handleDeleteFromCart(id) {
+      console.log(id)
+      this.removeId = id
+      this.orders = this.orders.filter(el => el.id != id)
     },
     isMobile() {
       const rect = document.body.getBoundingClientRect()
@@ -96,6 +99,8 @@ export default {
       return el
     })
     if (!this.isMobile()) this.blockAccess = true
+  },
+  watch: {
   },
 };
 </script>

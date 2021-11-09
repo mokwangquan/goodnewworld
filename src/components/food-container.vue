@@ -1,6 +1,6 @@
 <template>
   <div id="food-container">
-    <el-card :body-style="{ padding: '0px' }">
+    <el-card :body-style="{ padding: '0px' }"  :class="{'have-ordered': size != 'none'}">
       <el-row type="flex" justify="space-between" align="center">
         <el-col v-if="haveImage(id)">
           <div class="image-wrapper">
@@ -13,9 +13,28 @@
           <el-divider class="horizontal"></el-divider>
           <h4 class="title">{{ isEnglish ? foodDetails.name.english : foodDetails.name.chinese }}</h4>
           <el-divider class="horizontal"></el-divider>
+          <el-row class="price" v-if="foodDetails.price" type="flex" justify="center">
+            <div>{{ isEnglish ? 'Small' : '小' }}<br/>{{ foodDetails.price.small }}</div>
+            <div>{{ isEnglish ? 'Medium' : '中' }}<br/>{{ foodDetails.price.medium }}</div>
+            <div>{{ isEnglish ? 'Big' : '大' }}<br/>{{ foodDetails.price.big }}</div>
+          </el-row>
+          <!-- no price -->
+          <el-row v-else class="price" type="flex" justify="center">
+            <div>{{ isEnglish ? 'Market Price' : '时价' }}</div>
+          </el-row>
+          <el-divider class="horizontal"></el-divider>
           <!-- <p class="description">{{ foodDetails.name.english }}</p> -->
           <el-row type="flex" justify="center">
-            <el-input-number :min="0" class="amount" size="large" v-model="amount"></el-input-number>
+            <el-select class="size" v-model="size" placeholder="Select">
+              <el-option :label="isEnglish ? 'None' : '不要'" value="none"/>
+              <el-option v-if="!foodDetails.price" :label="isEnglish ? 'Yes' : '要'" value="yes"/>
+              <el-option v-if="foodDetails.price && foodDetails.price.small != '-'" 
+                :label="isEnglish ? 'Small' : '小'" value="small"/>
+              <el-option v-if="foodDetails.price && foodDetails.price.medium != '-'" 
+                :label="isEnglish ? 'Medium' : '中'" value="medium"/>
+              <el-option v-if="foodDetails.price && foodDetails.price.big != '-'" 
+                :label="isEnglish ? 'Big' : '大'" value="big"/>
+            </el-select>
           </el-row>
         </el-col>
       </el-row>
@@ -34,12 +53,15 @@ export default {
     language: {
       type: String,
       required: true,
+    },
+    remove: {
+      type: Number,
     }
   },
   data() {
     return {
       foodDetails: {},
-      amount: 0,
+      size: 'none',
     }
   },
   methods: {
@@ -63,19 +85,27 @@ export default {
     this.foodDetails = foods.find(el => el.id == this.id)
   },
   watch: {
-    amount() {
-      this.$emit('amountChange', {
+    size() {
+      this.$emit('sizeChange', {
         id: this.id,
         name: this.foodDetails.name,
-        amount: this.amount
+        size: this.size
       })
-    }
+    },
+    remove(newValue) {
+      if (newValue && newValue == this.id) {
+        this.size = 'none'
+      }
+    },
   }
 }
 </script>
 
 <style lang="scss">
 #food-container {
+  .have-ordered {
+    background-color: rgba(129, 0, 0, 0.3);
+  }
   .image-wrapper {
     height: 100%;
     display: flex;
@@ -109,8 +139,18 @@ export default {
     margin: auto 0;
   }
 
-  .amount {
-    margin-top: 2rem;
+  .price {
+    font-size: 0.8rem;
+    div {
+      width: 3rem;
+      margin: 0 0.2rem;
+      text-align: center;
+    }
+  }
+
+  .size {
+    width: 80%;
+    margin: 1rem 0;
   }
 }
 </style>

@@ -7,9 +7,6 @@
         <el-step :title="isEnglish ? 'Step 2' : '步骤 2'"></el-step>
       </el-steps>
       <!-- Step 1 -->
-      <el-row v-show="active == 0" style="text-align: center;">
-        {{ isEnglish ? 'All pricing will be introduce when communicating with the person in charge' : '所有的价钱会在和负责人沟通时开价'}}
-      </el-row>
       <el-row class="action" type="flex" :justify="active != 0 ? 'space-between' : 'end'">
         <el-button v-show="active != 0" @click="handleStep('back')">
           {{ isEnglish ? 'Back' : '上一步' }}
@@ -76,15 +73,17 @@
           <el-table-column :label="isEnglish ? 'Food Added' : '订单'">
             <template slot-scope="scope">
               {{ isEnglish ? scope.row.name.english : scope.row.name.chinese}}
+              ({{ parseSize(scope.row.size) }})
             </template>
           </el-table-column>
           <el-table-column prop="amount" width="50"/>
         </el-table>
+        <h5>{{ isEnglish ? 'Total' : '总共' }} : {{ orders.length }}</h5>
       
         <el-row type="flex" justify="center">
           <el-button v-if="!showLink" @click="handleConfirm">{{ isEnglish ? 'Confirm' : '确定' }}</el-button>
           <div v-else>
-            {{ isEnglish ? 'Open Whatsapp and send order' : '打开Whatsapp然后交订单' }}
+            {{ isEnglish ? 'Click below to open Whatsapp and send order' : '按下方打开Whatsapp然后交订单' }}
             <el-button  @click="getLink()"><img class="logo" src="@/assets/whatsapp-logo.png"/></el-button>
           </div>
         </el-row>
@@ -181,13 +180,20 @@ export default {
       if (this.orders.length > 0) {
         this.orders.forEach(order => {
           let found = foods.find(el => el.id == order.id)
-          result += `${order.amount} -> ${found.name.chinese}`
+          let price = found.price ? found.price[order.size] : '时价'
+          result += `${price} -> ${found.name.chinese}`
           result += nextLine
         })
       } else {
         result += `没添加任何食物`
       }
       return result
+    },
+    parseSize(size) {
+      if (size == 'small') return this.isEnglish ? 'S' : '小'
+      else if (size == 'medium') return this.isEnglish ? 'M' : '中'
+      else if (size == 'big') return this.isEnglish ? 'B' : '大'
+      else return this.isEnglish ? 'Y' : '要'
     }
   },
   computed: {

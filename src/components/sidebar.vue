@@ -24,17 +24,16 @@
       <div class="orders">
         <el-table
           :data="orders">
-          <el-table-column width="150" :label="isEnglish ? 'Food Added' : '订单'">
+          <el-table-column :label="isEnglish ? 'Food Added' : '订单'">
             <template slot-scope="scope">
               {{ isEnglish ? scope.row.name.english : scope.row.name.chinese }}
+              ({{ parseSize(scope.row.size) }})
             </template>
           </el-table-column>
-          <el-table-column>
+          <el-table-column width="30">
             <template slot-scope="scope">
               <el-row class="cart-action" type="flex" justify="space-between" align="center">
-                <i class="el-icon-remove-outline" @click="handleMinus(scope.row.id)"></i>
-                <span>{{ scope.row.amount }}</span>
-                <i class="el-icon-circle-plus-outline" @click="handleAdd(scope.row.id)"></i>
+                <i class="el-icon-remove-outline" @click="handleDelete(scope.row.id)"></i>
               </el-row>
             </template>
           </el-table-column>
@@ -75,12 +74,15 @@ export default {
       window.scrollTo(0, 0)
       document.getElementById(id).scrollIntoView();
     },
-    handleAdd(id) {
-      this.$emit('changeAmount', {id, amount: 1})
+    handleDelete(id) {
+      this.$emit('remove', id)
     },
-    handleMinus(id){
-      this.$emit('changeAmount', {id, amount: -1})
-    },
+    parseSize(size) {
+      if (size == 'small') return this.isEnglish ? 'S' : '小'
+      else if (size == 'medium') return this.isEnglish ? 'M' : '中'
+      else if (size == 'big') return this.isEnglish ? 'B' : '大'
+      else return this.isEnglish ? 'Y' : '要'
+    }
   },
   computed: {
     isEnglish() {return this.language == 'english'},

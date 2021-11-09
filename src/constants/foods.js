@@ -6,6 +6,11 @@ export const foods = [
       english: 'Suckling Pig (Whole)',
       chinese: '沙皮乳猪',
     },
+    price: {
+      small: '-',
+      medium: '-',
+      big: 'RM 298',
+    }
   },
   {
     id: 2,
@@ -14,6 +19,11 @@ export const foods = [
       english: 'Curry Chicken Pie',
       chinese: '西式鸡扒',
     },
+    price: {
+      small: '-',
+      medium: 'RM 35',
+      big: '-',
+    }
   },
   {
     id: 3,
@@ -22,6 +32,11 @@ export const foods = [
       english: 'Hainan Mutton Soup',
       chinese: '海南羊肉湯',
     },
+    price: {
+      small: 'RM 35',
+      medium: 'RM 60',
+      big: 'RM 120',
+    }
   },
   {
     id: 4,
@@ -30,6 +45,11 @@ export const foods = [
       english: 'Cold Dish',
       chinese: '冷盤',
     },
+    price: {
+      small: '-',
+      medium: 'RM 80',
+      big: 'RM 130',
+    }
   },
   {
     id: 5,
@@ -38,6 +58,11 @@ export const foods = [
       english: 'Sesame Chicken',
       chinese: '芝麻鸡',
     },
+    price: {
+      small: '-',
+      medium: 'RM 25',
+      big: 'RM 50',
+    }
   },
   {
     id: 6,
@@ -46,6 +71,11 @@ export const foods = [
       english: 'Cripsy Roasted Chicken',
       chinese: '脆皮烧鸡',
     },
+    price: {
+      small: '-',
+      medium: 'RM 25',
+      big: 'RM 50',
+    }
   },
   {
     id: 7,
@@ -54,6 +84,11 @@ export const foods = [
       english: 'Steamed Chicken with Chinese Wine and Herbs',
       chinese: '原酒蒸鸡',
     },
+    price: {
+      small: '-',
+      medium: 'RM 30',
+      big: 'RM 60',
+    }
   },
   {
     id: 8,
@@ -62,6 +97,11 @@ export const foods = [
       english: 'Marmite Chicken',
       chinese: '妈蜜鸡',
     },
+    price: {
+      small: 'RM 20',
+      medium: 'RM 30',
+      big: 'RM 45',
+    }
   },
   {
     id: 9,
@@ -70,6 +110,11 @@ export const foods = [
       english: 'Pork Ribs in Yam Ring',
       chinese: '芋头圈排骨王',
     },
+    price: {
+      small: 'RM 35',
+      medium: 'RM 45',
+      big: 'RM 55',
+    }
   },
   {
     id: 10,
@@ -77,6 +122,11 @@ export const foods = [
     name: {
       english: 'Stewed Slice Pork with Bun',
       chinese: '红燒扣肉(扁包)',
+    },
+    price: {
+      small: '-',
+      medium: 'RM 30',
+      big: 'RM 45',
     },
   },
   {
@@ -86,6 +136,11 @@ export const foods = [
       english: 'Pork Knuckle',
       chinese: '红烧猪脚',
     },
+    price: {
+      small: '-',
+      medium: 'RM 30',
+      big: 'RM 60',
+    },
   },
   {
     id: 12,
@@ -93,6 +148,11 @@ export const foods = [
     name: {
       english: 'Delicious Fried Meat with Sauce',
       chinese: '家乡炸肉',
+    },
+    price: {
+      small: 'RM 20',
+      medium: 'RM 30',
+      big: 'RM 45',
     },
   },
   {
@@ -118,6 +178,11 @@ export const foods = [
       english: 'Deep Fried Favorite Bean Curd',
       chinese: '香港豆腐',
     },
+    price: {
+      small: 'RM 15',
+      medium: 'RM 20',
+      big: 'RM 25',
+    },
   },
   {
     id: 16,
@@ -126,13 +191,23 @@ export const foods = [
       english: 'Sizzling Hot Plate Bean Curd',
       chinese: '铁板豆腐',
     },
+    price: {
+      small: 'RM 15',
+      medium: 'RM 20',
+      big: 'RM 25',
+    },
   },
   {
     id: 17,
     type: 'vege',
     name: {
-      english: 'Fried Scallop with Broccoli',
+      english: 'Stir Fried Lotus Root with Zinkgo',
       chinese: '小草王',
+    },
+    price: {
+      small: 'RM 18',
+      medium: 'RM 25',
+      big: 'RM 35',
     },
   },
   {
@@ -142,6 +217,11 @@ export const foods = [
       english: 'Green Dragon Vege with Slice Garlic',
       chinese: '清炒青龙菜',
     },
+    price: {
+      small: 'RM 18',
+      medium: 'RM 22',
+      big: 'RM 28',
+    },
   },
   {
     id: 19,
@@ -149,6 +229,11 @@ export const foods = [
     name: {
       english: 'Signature Oyster Mee',
       chinese: '招牌蚝面',
+    },
+    price: {
+      small: 'RM 16',
+      medium: 'RM 22',
+      big: 'RM 30',
     },
   },
   {
@@ -158,6 +243,11 @@ export const foods = [
       english: 'Fried Mee Sue (Dry)',
       chinese: '干炒面线',
     },
+    price: {
+      small: 'RM 15',
+      medium: 'RM 20',
+      big: 'RM 25',
+    },
   },
   {
     id: 21,
@@ -165,6 +255,11 @@ export const foods = [
     name: {
       english: "Fried Sharks Fin with Scramble Egg",
       chinese: '桂花炒翅',
+    },
+    price: {
+      small: 'RM 50',
+      medium: 'RM 70',
+      big: 'RM 90',
     },
   },
   {
@@ -191,20 +286,25 @@ export const foods = [
       chinese: '油蒸鳕鱼',
     },
   },
-  {
-    id: 25,
-    type: 'fish',
-    name: {
-      english: 'Tom Yam Steamed Fish （Thai Style）',
-      chinese: '东炎时鱼',
-    },
-  },
+  // {
+  //   id: 25,
+  //   type: 'fish',
+  //   name: {
+  //     english: 'Tom Yam Steamed Fish （Thai Style）',
+  //     chinese: '东炎时鱼',
+  //   },
+  // },
   {
     id: 26,
     type: 'other',
     name: {
       english: 'Pat Poh Sea Cucumber in Claypot',
       chinese: '什锦海味煲',
+    },
+    price: {
+      small: 'RM 50',
+      medium: 'RM 80',
+      big: 'RM 120',
     },
   },
   {
@@ -214,14 +314,19 @@ export const foods = [
       english: 'Sea Cucumber Mushroom with Sea Asparagus',
       chinese: '冬菇海参海芦笋',
     },
+    price: {
+      small: 'RM 50',
+      medium: 'RM 80',
+      big: 'RM 120',
+    },
   },
   {
-    id: 28,
-    type: 'other',
-    name: {
-      english: 'Poon Choy',
-      chinese: '盆菜',
-    },
+    // id: 28,
+    // type: 'other',
+    // name: {
+    //   english: 'Poon Choy',
+    //   chinese: '盆菜',
+    // },
   },
   {
     id: 29,
@@ -229,6 +334,11 @@ export const foods = [
     name: {
       english: 'Salad Prawns',
       chinese: '沙律虾',
+    },
+    price: {
+      small: 'RM 30',
+      medium: 'RM 60',
+      big: 'RM 80',
     },
   },
   {
@@ -238,6 +348,11 @@ export const foods = [
       english: 'Moonlight Fried Kuah Tiew',
       chinese: '月光河',
     },
+    price: {
+      small: 'RM 15',
+      medium: 'RM 20',
+      big: 'RM 25',
+    },
   },
   {
     id: 31,
@@ -245,6 +360,11 @@ export const foods = [
     name: {
       english: 'Stir Fried Asparagus with Prawns',
       chinese: '芦笋虾球',
+    },
+    price: {
+      small: 'RM 30',
+      medium: 'RM 60',
+      big: 'RM 80',
     },
   },
   {
@@ -254,6 +374,11 @@ export const foods = [
       english: 'Fried Chicken Sliced in Honey Sauce',
       chinese: '蜜汁子酱鸡',
     },
+    price: {
+      small: 'RM 20',
+      medium: 'RM 30',
+      big: 'RM 45',
+    },
   },
   {
     id: 33,
@@ -262,6 +387,11 @@ export const foods = [
       english: 'Fried Chicken with Spicy Sauce',
       chinese: '芭蕉鸡',
     },
+    price: {
+      small: 'RM 20',
+      medium: 'RM 30',
+      big: 'RM 45',
+    },
   },
   {
     id: 34,
@@ -269,6 +399,11 @@ export const foods = [
     name: {
       english: 'Fried Bean Curd with Scallop',
       chinese: '彩虹豆腐带子',
+    },
+    price: {
+      small: 'RM 25',
+      medium: 'RM 30',
+      big: 'RM 38',
     },
   },
 
