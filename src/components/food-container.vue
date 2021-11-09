@@ -1,13 +1,15 @@
 <template>
   <div id="food-container">
     <el-card :body-style="{ padding: '0px' }">
-      <el-row type="flex" justify="space-between">
-        <el-col :span="12">
-          <img fit="contain" :src="getImgUrl(id)"
-            class="image"/>
+      <el-row type="flex" justify="space-between" align="center">
+        <el-col v-if="haveImage(id)">
+          <div class="image-wrapper">
+            <img fit="contain" :src="getImgUrl(id)"
+              class="image"/>
+          </div>
         </el-col>
         <el-divider class="vertical" direction="vertical"></el-divider>
-        <el-col v-if="foodDetails.id" class="food-info" :span="12">
+        <el-col v-if="foodDetails.id" class="food-info">
           <el-divider class="horizontal"></el-divider>
           <h4 class="title">{{ isEnglish ? foodDetails.name.english : foodDetails.name.chinese }}</h4>
           <el-divider class="horizontal"></el-divider>
@@ -44,7 +46,15 @@ export default {
     getImgUrl(id) {
       let images = require.context('../assets/foods/', false, /\.jpeg$/)
       return images('./' + id + ".jpeg")
-    }
+    },
+    haveImage() {
+      // const url = `../assets/foods/${id}.jpeg`
+      // var req = new XMLHttpRequest();
+      // req.open('HEAD', url, false);
+      // req.send();
+      // return req.status==200;
+      return true
+    },
   },
   computed: {
     isEnglish() {return this.language == 'english'},
@@ -66,9 +76,13 @@ export default {
 
 <style lang="scss">
 #food-container {
-  .image {
-    width: 100%;
+  .image-wrapper {
     height: 100%;
+    display: flex;
+    align-items: center;
+    .image {
+      width: 100%;
+    }
   }
 
   .title {

@@ -25,6 +25,14 @@ export const allFoodType = [
   },
   {
     type: {
+      english: 'Prawn 🦐',
+      chinese: '虾类 🦐',
+      prop: 'prawn',
+    },
+    item: [],
+  },
+  {
+    type: {
       english: 'Soup 🥣',
       chinese: '汤类 🥣',
       prop: 'soup',

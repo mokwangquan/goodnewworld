@@ -12,7 +12,7 @@
         class="el-menu-vertical-demo">
         <el-menu-item index="0">
           <i class="el-icon-top"></i>
-          <a href="#">{{ isEnglish ? 'Back to Top' : '回到最上' }}</a>
+          <a @click="handleGoTop()">{{ isEnglish ? 'Back to Top' : '回到最上' }}</a>
         </el-menu-item>
         <el-menu-item v-for="food in allFoodType" :key="food.type.prop" :index="food.type.prop">
           <i class="el-icon-food"></i>
@@ -67,7 +67,11 @@ export default {
     handleSelect() {
       this.openDrawer = false
     },
+    handleGoTop() {
+      window.scrollTo(0, 0)
+    },
     handleScrolling(id) {
+      document.getElementById(id).scrollIntoView();
       window.scrollTo(0, 0)
       document.getElementById(id).scrollIntoView();
     },

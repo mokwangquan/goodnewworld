@@ -107,8 +107,8 @@ export const foods = [
     id: 14,
     type: 'fish',
     name: {
-      english: 'Sweet and Sour Zinah Fish',
-      chinese: '酸甜仁那鱼',
+      english: 'Sweet and Sour Fresh Fish',
+      chinese: '酸甜时鱼',
     },
   },
   {
@@ -159,4 +159,120 @@ export const foods = [
       chinese: '干炒面线',
     },
   },
+  {
+    id: 21,
+    type: 'other',
+    name: {
+      english: "Fried Sharks Fin with Scramble Egg",
+      chinese: '桂花炒翅',
+    },
+  },
+  {
+    id: 22,
+    type: 'fish',
+    name: {
+      english: 'Steamboat with Fresh Fish',
+      chinese: '鱼炉',
+    },
+  },
+  {
+    id: 23,
+    type: 'fish',
+    name: {
+      english: 'Pomfret Fish with Three Varieties',
+      chinese: '三味鲳鱼',
+    },
+  },
+  {
+    id: 24,
+    type: 'fish',
+    name: {
+      english: 'Steamed Cod Fish with Soya Sauce',
+      chinese: '油蒸鳕鱼',
+    },
+  },
+  {
+    id: 25,
+    type: 'fish',
+    name: {
+      english: 'Tom Yam Steamed Fish （Thai Style）',
+      chinese: '东炎时鱼',
+    },
+  },
+  {
+    id: 26,
+    type: 'other',
+    name: {
+      english: 'Pat Poh Sea Cucumber in Claypot',
+      chinese: '什锦海味煲',
+    },
+  },
+  {
+    id: 27,
+    type: 'other',
+    name: {
+      english: 'Sea Cucumber Mushroom with Sea Asparagus',
+      chinese: '冬菇海参海芦笋',
+    },
+  },
+  {
+    id: 28,
+    type: 'other',
+    name: {
+      english: 'Poon Choy',
+      chinese: '盆菜',
+    },
+  },
+  {
+    id: 29,
+    type: 'prawn',
+    name: {
+      english: 'Salad Prawns',
+      chinese: '沙律虾',
+    },
+  },
+  {
+    id: 30,
+    type: 'carbo',
+    name: {
+      english: 'Moonlight Fried Kuah Tiew',
+      chinese: '月光河',
+    },
+  },
+  {
+    id: 31,
+    type: 'prawn',
+    name: {
+      english: 'Stir Fried Asparagus with Prawns',
+      chinese: '芦笋虾球',
+    },
+  },
+  {
+    id: 32,
+    type: 'chicken',
+    name: {
+      english: 'Fried Chicken Sliced in Honey Sauce',
+      chinese: '蜜汁子酱鸡',
+    },
+  },
+  {
+    id: 33,
+    type: 'chicken',
+    name: {
+      english: 'Fried Chicken with Spicy Sauce',
+      chinese: '芭蕉鸡',
+    },
+  },
+  {
+    id: 34,
+    type: 'toufu',
+    name: {
+      english: 'Fried Bean Curd with Scallop',
+      chinese: '彩虹豆腐带子',
+    },
+  },
+
+  
+  
+  
 ]
