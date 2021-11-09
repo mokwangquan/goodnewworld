@@ -7,6 +7,9 @@
         <el-step :title="isEnglish ? 'Step 2' : '步骤 2'"></el-step>
       </el-steps>
       <!-- Step 1 -->
+      <el-row v-show="active == 0" style="text-align: center;">
+        {{ isEnglish ? 'All pricing will be introduce when communicating with the person in charge' : '所有的价钱会在和负责人沟通时开价'}}
+      </el-row>
       <el-row class="action" type="flex" :justify="active != 0 ? 'space-between' : 'end'">
         <el-button v-show="active != 0" @click="handleStep('back')">
           {{ isEnglish ? 'Back' : '上一步' }}
