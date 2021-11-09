@@ -24,12 +24,20 @@
       <div class="orders">
         <el-table
           :data="orders">
-          <el-table-column :label="isEnglish ? 'Food Added' : '订单'">
+          <el-table-column width="150" :label="isEnglish ? 'Food Added' : '订单'">
             <template slot-scope="scope">
               {{ isEnglish ? scope.row.name.english : scope.row.name.chinese }}
             </template>
           </el-table-column>
-          <el-table-column prop="amount" width="50"/>
+          <el-table-column>
+            <template slot-scope="scope">
+              <el-row class="cart-action" type="flex" justify="space-between" align="center">
+                <i class="el-icon-remove-outline" @click="handleMinus(scope.row.id)"></i>
+                <span>{{ scope.row.amount }}</span>
+                <i class="el-icon-circle-plus-outline" @click="handleAdd(scope.row.id)"></i>
+              </el-row>
+            </template>
+          </el-table-column>
         </el-table>
       </div>
     </el-drawer>
@@ -63,6 +71,12 @@ export default {
       window.scrollTo(0, 0)
       document.getElementById(id).scrollIntoView();
     },
+    handleAdd(id) {
+      this.$emit('changeAmount', {id, amount: 1})
+    },
+    handleMinus(id){
+      this.$emit('changeAmount', {id, amount: -1})
+    },
   },
   computed: {
     isEnglish() {return this.language == 'english'},
@@ -86,6 +100,11 @@ export default {
   }
   .orders {
     margin: 1rem;
+  }
+  .cart-action {
+    * {
+      margin: auto 0;
+    }
   }
 }
 </style>

@@ -3,6 +3,7 @@
   <div id="app">
     <sidebar 
       v-show="showMenu" 
+      @changeAmount="handleCartChangeAmount"
       :language="language"
       :orders="orders"/>
     <el-radio-group class="language-selection" size="mini" v-model="language">
@@ -32,6 +33,9 @@
       
     </div>
     <div class="spacer"></div>
+    <div class="block-access" v-show="blockAccess">
+      <div>Currently only works for mobile. Sorry for the inconveniences</div>
+    </div>
   </div>
 </template>
 
@@ -41,6 +45,9 @@ import info from '@/components/info.vue'
 import foodContainer from '@/components/food-container.vue'
 import { foods } from  '@/constants/foods.js'
 import { allFoodType } from  '@/constants/types.js'
+
+const WIDTH = 992 // refer to Bootstrap's responsive design
+
 export default {
   components: {
     sidebar,
@@ -49,6 +56,7 @@ export default {
   },
   data() {
     return {
+      blockAccess: false,
       language: 'english',
       showMenu: true,
       allFoods: allFoodType,
@@ -68,6 +76,16 @@ export default {
         this.orders.push({id, name, amount})
       }
     },
+    handleCartChangeAmount({id, amount}) {
+      this.orders.map(el => {
+        if (el.id == id) el.amount += amount
+      })
+      this.orders = this.orders.filter(el => el.amount != 0)
+    },
+    isMobile() {
+      const rect = document.body.getBoundingClientRect()
+      return rect.width - 1 < WIDTH
+    }
   },
   computed: {
     isEnglish() {return this.language == 'english'},
@@ -77,6 +95,7 @@ export default {
       el.item = foods.filter(food => food.type == el.type.prop)
       return el
     })
+    if (!this.isMobile()) this.blockAccess = true
   },
 };
 </script>
@@ -108,6 +127,21 @@ export default {
     font-size: inherit;
     line-height: inherit;
     color: inherit;
+  }
+  .block-access {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    color: white;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 9999999;
+    >div {
+      position: relative;
+      top: 50vh;
+      left: 30vw;
+    }
   }
 }
 </style>

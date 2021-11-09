@@ -17,13 +17,15 @@
       </el-row>
       <el-divider class="horizontal"></el-divider>
       <el-card v-if="active == 1" class="order-basic-info">
-        <el-row type="flex" justify="center">
-          <el-radio-group v-model="type" size="large">
-            <el-radio-button label="dine in">{{ isEnglish ? 'Dine-in' : '堂食' }}</el-radio-button>
-            <el-radio-button label="takeaway">{{ isEnglish ? 'Takeaway' : '打包' }}</el-radio-button>
-            <el-radio-button label="delivery">{{ isEnglish ? 'Delivery' : '外送' }}</el-radio-button>
-          </el-radio-group>
-        </el-row>
+        <template slot="header">
+          <el-row type="flex" justify="center">
+            <el-radio-group v-model="type" size="mini">
+              <el-radio-button label="dine in">{{ isEnglish ? 'Dine-in' : '堂食' }}</el-radio-button>
+              <el-radio-button label="takeaway">{{ isEnglish ? 'Takeaway' : '打包' }}</el-radio-button>
+              <el-radio-button label="delivery">{{ isEnglish ? 'Delivery' : '外送' }}</el-radio-button>
+            </el-radio-group>
+          </el-row>
+        </template>
         <el-col>
           <div class="label">{{ isEnglish ? 'Date' : '日期' }}</div>
           <el-date-picker
@@ -57,14 +59,13 @@
           <div class="label">
             {{ isEnglish ? 'Language preferences' : '语言' }}
             <br/>
-            ({{ isEnglish ? 'while communicating with our captain' : '当和我们的Captain沟通时用的语言' }})
+            ({{ isEnglish ? 'while communicating with our person in charge' : '当和我们的负责人沟通时用的语言' }})
           </div>
           <el-radio-group v-model="languagePreference" size="large">
             <el-radio-button label="chinese">中文</el-radio-button>
             <el-radio-button label="english">English</el-radio-button>
           </el-radio-group>
         </el-col>
-        <el-divider></el-divider>
         <h4>{{ isEnglish ? 'Please confirm the order below' : '请确定以下的订单' }}</h4>
         <el-table
           :empty-text="isEnglish ? 'No order added' : '没有食物'"
@@ -76,12 +77,15 @@
           </el-table-column>
           <el-table-column prop="amount" width="50"/>
         </el-table>
-        <el-button v-if="!showLink" @click="handleConfirm">{{ isEnglish ? 'Confirm' : '确定' }}</el-button>
-        <a v-else :href="getLink()">{{ isEnglish ? 'Open Whatsapp and send order' : '按我打开Whatsapp然后交订单' }}</a>
-      </el-card>
-      <!-- Step 2 (choose meals) -->
-      <!-- Step 3 (send to Whatsapp) -->
       
+        <el-row type="flex" justify="center">
+          <el-button v-if="!showLink" @click="handleConfirm">{{ isEnglish ? 'Confirm' : '确定' }}</el-button>
+          <div v-else>
+            {{ isEnglish ? 'Open Whatsapp and send order' : '打开Whatsapp然后交订单' }}
+            <el-button  @click="getLink()"><img class="logo" src="@/assets/whatsapp-logo.png"/></el-button>
+          </div>
+        </el-row>
+      </el-card>
     </el-card>
     <!-- FIXME: remind user to have whatsapp -->
   </div>
@@ -155,7 +159,7 @@ export default {
       }
     },
     getLink() {
-      return `https://wa.me/60126549696?text=${this.getWhatsappMsg()}`
+      location.href = `https://wa.me/60126549696?text=${this.getWhatsappMsg()}`
     },
     getWhatsappMsg() {
       const nextLine="%0A"
@@ -171,12 +175,15 @@ export default {
       result += nextLine
       result += `----- 菜单 -----`
       result += nextLine
-      this.orders.forEach(order => {
-        let found = foods.find(el => el.id == order.id)
-        result += `${order.amount} -> ${found.name.chinese}`
-        result += nextLine
-      })
-      console.log(result, this.time)
+      if (this.orders.length > 0) {
+        this.orders.forEach(order => {
+          let found = foods.find(el => el.id == order.id)
+          result += `${order.amount} -> ${found.name.chinese}`
+          result += nextLine
+        })
+      } else {
+        result += `没添加任何食物`
+      }
       return result
     }
   },
