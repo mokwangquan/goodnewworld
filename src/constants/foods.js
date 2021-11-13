@@ -17,7 +17,7 @@ export const foods = [
     type: 'chicken',
     name: {
       english: 'Curry Chicken Pie',
-      chinese: '西式鸡扒',
+      chinese: '咖喱鸡脆派',
     },
     price: {
       small: '-',
