@@ -2,21 +2,29 @@
 <template>
   <div id="app">
     <sidebar 
-      v-show="showMenu" 
+      v-show="active == 0" 
       @remove="handleDeleteFromCart"
       :language="language"
       :orders="orders"/>
-    <el-radio-group class="language-selection" size="mini" v-model="language">
-      <el-radio-button label="chinese">中文</el-radio-button>
-      <el-radio-button label="english">English</el-radio-button>
-    </el-radio-group>
+    <el-row class="action" type="flex" justify="start">
+      <el-radio-group class="language-selection" size="mini" v-model="language">
+        <el-radio-button label="chinese">中文</el-radio-button>
+        <el-radio-button label="english">English</el-radio-button>
+      </el-radio-group>
+      <el-button v-if="active == 1" @click="handleStep('back')" type="primary" size="large" style="color:white;">
+        {{ isEnglish ? 'Back' : '上一步' }}
+      </el-button>
+      <el-button v-else @click="handleStep('next')" type="primary" size="large" style="color:white;">
+        {{ isEnglish ? 'Next' : '下一步' }}
+      </el-button>
+    </el-row>
     <info
-      @showMenu="(value) => this.showMenu = value"
       @passInfo="(value) => this.info = value"
+      :active="active"
       :language="language"
       :orders="orders"
       />
-    <div v-show="showMenu">
+    <div v-show="active == 0">
       <template v-for="food in allFoods">
       <el-divider  :key="food.type.prop"/>
       <div :id="food.type.prop" class="category-title" :key="food.type.prop">
@@ -61,6 +69,7 @@ export default {
       language: 'english',
       showMenu: true,
       allFoods: allFoodType,
+      active: 0,
 
       orders: [],
       removeId: null,
@@ -68,7 +77,6 @@ export default {
   },
   methods: {
     handleSizeChange({id, name, size}) {
-      console.log(size)
       if (size == 'none') return
       let alrdyHave = this.orders.findIndex(el => el.id == id) >= 0
       if (alrdyHave) {
@@ -81,13 +89,16 @@ export default {
       }
     },
     handleDeleteFromCart(id) {
-      console.log(id)
       this.removeId = id
       this.orders = this.orders.filter(el => el.id != id)
     },
     isMobile() {
       const rect = document.body.getBoundingClientRect()
       return rect.width - 1 < WIDTH
+    },
+    handleStep(direction) {
+      if (direction == 'back') this.active--
+      if (direction == 'next') this.active++
     }
   },
   computed: {
@@ -109,11 +120,18 @@ export default {
 #app {
   font-size: 1.5rem;
   position: relative;
-  .el-radio-group.language-selection {
+  .action {
     z-index: 999;
     position: fixed;
-    bottom: 1rem;
-    left: 1rem;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: white;
+    width: 100%;
+    * {
+      margin: auto 0;
+      margin-left: 0.25rem;
+    }
   }
   .category-title {
     text-align: center;
@@ -126,13 +144,12 @@ export default {
   .spacer {
     padding: 2rem;
   }
-  button, input, select, textarea
-  span  {
-    font-family: inherit;
-    font-size: inherit;
-    line-height: inherit;
-    color: inherit;
-  }
+  // button, input, select, textarea  {
+  //   font-family: inherit;
+  //   font-size: inherit;
+  //   line-height: inherit;
+  //   color: inherit;
+  // }
   .block-access {
     width: 100vw;
     height: 100vh;

@@ -2,20 +2,7 @@
   <div id="info">
     <el-card>
       <img class="logo" src="@/assets/gnw-logo.png"/>
-      <el-steps :active="active" finish-status="success">
-        <el-step :title="isEnglish ? 'Step 1' : '步骤 1'"></el-step>
-        <el-step :title="isEnglish ? 'Step 2' : '步骤 2'"></el-step>
-      </el-steps>
       <!-- Step 1 -->
-      <el-row class="action" type="flex" :justify="active != 0 ? 'space-between' : 'end'">
-        <el-button v-show="active != 0" @click="handleStep('back')">
-          {{ isEnglish ? 'Back' : '上一步' }}
-        </el-button>
-        <el-button v-show="active != 1" @click="handleStep('next')">
-          {{ isEnglish ? 'Next' : '下一步' }}
-        </el-button>
-      </el-row>
-      <el-divider class="horizontal"></el-divider>
       <el-card v-if="active == 1" class="order-basic-info">
         <template slot="header">
           <el-row type="flex" justify="center">
@@ -99,6 +86,10 @@ import { foods } from  '@/constants/foods.js'
 
 export default {
   props: {
+    active: {
+      type: Number,
+      required: true,
+    },
     orders: {
       type: Array,
     },
@@ -109,7 +100,6 @@ export default {
   },
   data() {
     return {
-      active: 0,
       type: 'dine in',
       date: null,
       time: null,
@@ -137,28 +127,6 @@ export default {
       if (this.name == null || this.name == '') return true
       if (this.numOfPpl == 0) return true
       return false
-    },
-    handleStep(direction) {
-      if (direction == 'back') {
-        this.$emit('showMenu', true)
-        this.active--
-      }
-      if (direction == 'next') {
-        // if (this.orders.length == 0) {
-          // this.$confirm(
-          //   this.isEnglish ? 'No food was added. You want to proceed to next step?' 
-          //     : '您还未添加任何食物，确定下一步？'
-          // , 'Warning', {
-          //   confirmButtonText: 'OK',
-          //   cancelButtonText: 'Cancel',
-          //   type: 'warning',
-          //   center: true,
-          // }).then(() => {
-            this.$emit('showMenu', false)
-            this.active++
-          // });
-        // }
-      }
     },
     getLink() {
       location.href = `https://wa.me/60126549696?text=${this.getWhatsappMsg()}`

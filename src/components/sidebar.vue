@@ -95,7 +95,7 @@ export default {
 <style lang="scss">
 #sidebar {
   .el-button {
-    z-index: 999;
+    z-index: 1000;
     position: fixed;
     bottom: 1rem;
     right: 1rem;

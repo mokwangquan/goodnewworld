@@ -286,14 +286,19 @@ export const foods = [
       chinese: '油蒸鳕鱼',
     },
   },
-  // {
-  //   id: 25,
-  //   type: 'fish',
-  //   name: {
-  //     english: 'Tom Yam Steamed Fish （Thai Style）',
-  //     chinese: '东炎时鱼',
-  //   },
-  // },
+  {
+    id: 25,
+    type: 'toufu',
+    name: {
+      english: 'Fried Bean Curd with Scallop',
+      chinese: '彩虹豆腐带子',
+    },
+    price: {
+      small: 'RM 25',
+      medium: 'RM 30',
+      big: 'RM 38',
+    },
+  },
   {
     id: 26,
     type: 'other',
@@ -393,21 +398,4 @@ export const foods = [
       big: 'RM 45',
     },
   },
-  {
-    id: 34,
-    type: 'toufu',
-    name: {
-      english: 'Fried Bean Curd with Scallop',
-      chinese: '彩虹豆腐带子',
-    },
-    price: {
-      small: 'RM 25',
-      medium: 'RM 30',
-      big: 'RM 38',
-    },
-  },
-
-  
-  
-  
 ]
