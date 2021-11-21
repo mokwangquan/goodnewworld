@@ -33,9 +33,9 @@ export const foods = [
       chinese: '海南羊肉湯',
     },
     price: {
-      small: 'RM 35',
-      medium: 'RM 60',
-      big: 'RM 120',
+      small: 'RM 40',
+      medium: 'RM 65',
+      big: 'RM 130',
     }
   },
   {
