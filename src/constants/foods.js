@@ -7,8 +7,8 @@ export const foods = [
       chinese: '沙皮乳猪',
     },
     price: {
-      small: '-',
-      medium: '-',
+      small: null,
+      medium: null,
       big: 'RM 298',
     }
   },
@@ -20,9 +20,9 @@ export const foods = [
       chinese: '咖喱鸡脆派',
     },
     price: {
-      small: '-',
+      small: null,
       medium: 'RM 35',
-      big: '-',
+      big: null,
     }
   },
   {
@@ -46,7 +46,7 @@ export const foods = [
       chinese: '冷盤',
     },
     price: {
-      small: '-',
+      small: null,
       medium: 'RM 80',
       big: 'RM 130',
     }
@@ -59,7 +59,7 @@ export const foods = [
       chinese: '芝麻鸡',
     },
     price: {
-      small: '-',
+      small: null,
       medium: 'RM 25',
       big: 'RM 50',
     }
@@ -72,7 +72,7 @@ export const foods = [
       chinese: '脆皮烧鸡',
     },
     price: {
-      small: '-',
+      small: null,
       medium: 'RM 25',
       big: 'RM 50',
     }
@@ -85,7 +85,7 @@ export const foods = [
       chinese: '原酒蒸鸡',
     },
     price: {
-      small: '-',
+      small: null,
       medium: 'RM 30',
       big: 'RM 60',
     }
@@ -124,7 +124,7 @@ export const foods = [
       chinese: '红燒扣肉(扁包)',
     },
     price: {
-      small: '-',
+      small: null,
       medium: 'RM 30',
       big: 'RM 45',
     },
@@ -137,7 +137,7 @@ export const foods = [
       chinese: '红烧猪脚',
     },
     price: {
-      small: '-',
+      small: null,
       medium: 'RM 30',
       big: 'RM 60',
     },

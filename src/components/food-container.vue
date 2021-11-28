@@ -1,6 +1,7 @@
 <template>
   <div id="food-container">
-    <el-card :body-style="{ padding: '0px' }"  :class="{'have-ordered': size != 'none'}">
+    <el-card :body-style="{ padding: '0px' }"  
+      :class="getContainerClass">
       <el-row type="flex" justify="space-between" align="center">
         <el-col v-if="haveImage(id)">
           <div class="image-wrapper">
@@ -14,9 +15,9 @@
           <h4 class="title">{{ isEnglish ? foodDetails.name.english : foodDetails.name.chinese }}</h4>
           <el-divider class="horizontal"></el-divider>
           <el-row class="price" v-if="foodDetails.price" type="flex" justify="center">
-            <div>{{ isEnglish ? 'Small' : '小' }}<br/>{{ foodDetails.price.small }}</div>
-            <div>{{ isEnglish ? 'Medium' : '中' }}<br/>{{ foodDetails.price.medium }}</div>
-            <div>{{ isEnglish ? 'Big' : '大' }}<br/>{{ foodDetails.price.big }}</div>
+            <div v-show="foodDetails.price.small">{{ isEnglish ? 'Small' : '小' }}<br/>{{ foodDetails.price.small }}</div>
+            <div v-show="foodDetails.price.medium">{{ isEnglish ? 'Medium' : '中' }}<br/>{{ foodDetails.price.medium }}</div>
+            <div v-show="foodDetails.price.big">{{ isEnglish ? 'Big' : '大' }}<br/>{{ foodDetails.price.big }}</div>
           </el-row>
           <!-- no price -->
           <el-row v-else class="price" type="flex" justify="center">
@@ -28,11 +29,11 @@
             <el-select class="size" v-model="size" placeholder="Select">
               <el-option :label="isEnglish ? 'None' : '不要'" value="none"/>
               <el-option v-if="!foodDetails.price" :label="isEnglish ? 'Yes' : '要'" value="yes"/>
-              <el-option v-if="foodDetails.price && foodDetails.price.small != '-'" 
+              <el-option v-if="foodDetails.price && foodDetails.price.small" 
                 :label="isEnglish ? 'Small' : '小'" value="small"/>
-              <el-option v-if="foodDetails.price && foodDetails.price.medium != '-'" 
+              <el-option v-if="foodDetails.price && foodDetails.price.medium" 
                 :label="isEnglish ? 'Medium' : '中'" value="medium"/>
-              <el-option v-if="foodDetails.price && foodDetails.price.big != '-'" 
+              <el-option v-if="foodDetails.price && foodDetails.price.big" 
                 :label="isEnglish ? 'Big' : '大'" value="big"/>
             </el-select>
           </el-row>
@@ -80,6 +81,14 @@ export default {
   },
   computed: {
     isEnglish() {return this.language == 'english'},
+    getContainerClass() {
+      return {
+        'have-ordered': this.size != 'none',
+        small: this.size == 'small', 
+        medium: this.size == 'medium', 
+        big: this.size == 'big', 
+      }
+    }
   },
   mounted() {
     this.foodDetails = foods.find(el => el.id == this.id)
@@ -104,7 +113,10 @@ export default {
 <style lang="scss">
 #food-container {
   .have-ordered {
-    background-color: rgba(129, 0, 0, 0.3);
+    &.small { background-color: rgba(129, 0, 0, 0.1); }
+    &.medium { background-color: rgba(129, 0, 0, 0.25); }
+    &.big { background-color: rgba(129, 0, 0, 0.4); }
+    background-color: rgba(129, 0, 0, 0.4);
   }
   .image-wrapper {
     height: 100%;

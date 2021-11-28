@@ -2,14 +2,20 @@
   <div id="info">
     <el-card>
       <img class="logo" src="@/assets/gnw-logo.png"/>
+      <p class="credit">Designed and built by Mok Wang Quan :)</p>
+      <p class="instruction" v-if="active == 0">
+        {{ isEnglish ? 'Welcome !' : '欢迎！' }}<br/>
+        {{ isEnglish ? "Please add the required foods below and proceed by tapping on 'Next'" 
+        : "请选择您要的食物，然后点'下一步'" }}
+      </p>
       <!-- Step 1 -->
       <el-card v-if="active == 1" class="order-basic-info">
         <template slot="header">
           <el-row type="flex" justify="center">
             <el-radio-group v-model="type" size="mini">
-              <el-radio-button label="dine in">{{ isEnglish ? 'Dine-in' : '堂食' }}</el-radio-button>
-              <el-radio-button label="takeaway">{{ isEnglish ? 'Takeaway' : '打包' }}</el-radio-button>
-              <el-radio-button label="delivery">{{ isEnglish ? 'Delivery' : '外送' }}</el-radio-button>
+              <el-radio-button label="Dine-in">{{ isEnglish ? 'Dine-in' : '堂食' }}</el-radio-button>
+              <el-radio-button label="Takeaway">{{ isEnglish ? 'Takeaway' : '打包' }}</el-radio-button>
+              <el-radio-button label="Delivery">{{ isEnglish ? 'Delivery' : '外送' }}</el-radio-button>
             </el-radio-group>
           </el-row>
         </template>
@@ -49,8 +55,8 @@
             ({{ isEnglish ? 'while communicating with our person in charge' : '当和我们的负责人沟通时用的语言' }})
           </div>
           <el-radio-group v-model="languagePreference" size="large">
-            <el-radio-button label="chinese">中文</el-radio-button>
-            <el-radio-button label="english">English</el-radio-button>
+            <el-radio-button label="Chinese">中文</el-radio-button>
+            <el-radio-button label="English">English</el-radio-button>
           </el-radio-group>
         </el-col>
         <h4>{{ isEnglish ? 'Please confirm the order below' : '请确定以下的订单' }}</h4>
@@ -68,15 +74,13 @@
         <h5>{{ isEnglish ? 'Total' : '总共' }} : {{ orders.length }}</h5>
       
         <el-row type="flex" justify="center">
-          <el-button v-if="!showLink" @click="handleConfirm">{{ isEnglish ? 'Confirm' : '确定' }}</el-button>
-          <div v-else>
+          <div>
             {{ isEnglish ? 'Click below to open Whatsapp and send order' : '按下方打开Whatsapp然后交订单' }}
             <el-button  @click="getLink()"><img class="logo" src="@/assets/whatsapp-logo.png"/></el-button>
           </div>
         </el-row>
       </el-card>
     </el-card>
-    <!-- FIXME: remind user to have whatsapp -->
   </div>
 </template>
 
@@ -100,27 +104,16 @@ export default {
   },
   data() {
     return {
-      type: 'dine in',
+      type: 'Dine-in',
       date: null,
       time: null,
       name: '',
       numOfPpl: 0,
-      languagePreference: 'chinese',
+      languagePreference: 'Chinese',
 
-      showLink: false,
     }
   },
   methods: {
-    handleConfirm() {
-      if (this.active == 1) {
-        if (this.haveInvalidField()){
-          this.$message.error(this.isEnglish ? 'Oops, Please key in all field.' : '请填写所有资料' )
-          this.showLink = false
-        } else {
-          this.showLink = true
-        }
-      }
-    },
     haveInvalidField() {
       if (this.date == null) return true
       if (this.time == null) return true
@@ -129,11 +122,17 @@ export default {
       return false
     },
     getLink() {
-      location.href = `https://wa.me/60126549696?text=${this.getWhatsappMsg()}`
+      if (this.active == 1) {
+        if (this.haveInvalidField()){
+          this.$message.error(this.isEnglish ? 'Oops, Please key in all field.' : '请填写所有资料' )
+          return
+        }
+        location.href = `https://wa.me/60126549696?text=${this.getWhatsappMsg()}`
+      }
     },
     getWhatsappMsg() {
       const nextLine="%0A"
-      let result = `你好 Madam Tan, 我是${this.name}. 这是从网站order：`
+      let result = `您好 Madam Tan, 我是${this.name}. 这是从网站order：`
       result += nextLine
       result += `语言: ${this.languagePreference}`
       result += nextLine
@@ -179,6 +178,14 @@ export default {
     display: block;
     margin-left: auto;
     margin-right: auto;
+  }
+  .credit {
+    font-size: 0.5rem;
+    text-align: center;
+  }
+  .instruction {
+    font-size: 1.2rem;
+    text-align: center;
   }
   .order-basic-info {
     .label {

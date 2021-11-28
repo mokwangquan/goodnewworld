@@ -70,9 +70,8 @@ export default {
       window.scrollTo(0, 0)
     },
     handleScrolling(id) {
-      document.getElementById(id).scrollIntoView();
       window.scrollTo(0, 0)
-      document.getElementById(id).scrollIntoView();
+      setTimeout(() => document.getElementById(id).scrollIntoView(), 2);
     },
     handleDelete(id) {
       this.$emit('remove', id)

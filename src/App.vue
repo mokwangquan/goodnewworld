@@ -66,7 +66,7 @@ export default {
   data() {
     return {
       blockAccess: false,
-      language: 'english',
+      language: 'chinese',
       showMenu: true,
       allFoods: allFoodType,
       active: 0,
@@ -99,6 +99,7 @@ export default {
     handleStep(direction) {
       if (direction == 'back') this.active--
       if (direction == 'next') this.active++
+      window.scrollTo(0, 0)
     }
   },
   computed: {
@@ -110,6 +111,20 @@ export default {
       return el
     })
     if (!this.isMobile()) this.blockAccess = true
+
+    // Initially ask for language
+    this.$confirm('Please choose the language. 请选择语言', 'Welcome! 欢迎!', {
+      confirmButtonText: 'English',
+      cancelButtonText: '中文',
+      confirmButtonClass: 'red-button',
+      cancelButtonClass: 'red-button',
+      center: true,
+      showClose: false,
+    }).then(() => {
+      this.language = 'english'
+    }).catch(() => {
+      this.language = 'chinese'
+    })
   },
   watch: {
   },
