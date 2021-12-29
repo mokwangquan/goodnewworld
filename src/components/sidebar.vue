@@ -17,6 +17,7 @@
         <el-menu-item v-for="food in allFoodType" :key="food.type.prop" :index="food.type.prop">
           <i class="el-icon-food"></i>
           <a @click="handleScrolling(food.type.prop)">{{ isEnglish ? food.type.english : food.type.chinese}}</a>
+          <el-badge v-if="getBadgeValue(food.item) > 0" :value="getBadgeValue(food.item)"/>
         </el-menu-item>
         
       </el-menu>
@@ -81,6 +82,12 @@ export default {
       else if (size == 'medium') return this.isEnglish ? 'M' : '中'
       else if (size == 'big') return this.isEnglish ? 'B' : '大'
       else return this.isEnglish ? 'Y' : '要'
+    },
+    getBadgeValue(item) {
+      let retrievedList = item.filter(el => {
+        return this.orders.findIndex(orderItem => orderItem.id == el.id) >= 0
+      })
+      return retrievedList.length
     }
   },
   computed: {
@@ -102,6 +109,9 @@ export default {
   a {
     text-decoration: none;
     color: black;
+  }
+  .el-badge {
+    float: right;
   }
   .orders {
     margin: 1rem;
