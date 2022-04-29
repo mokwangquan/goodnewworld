@@ -9,7 +9,7 @@ export const foods = [
     price: {
       small: null,
       medium: null,
-      big: 'RM 328',
+      big: 'RM 350',
     }
   },
   {
