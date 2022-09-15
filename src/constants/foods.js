@@ -48,7 +48,7 @@ export const foods = [
     price: {
       small: null,
       medium: 'RM 90',
-      big: 'RM 130',
+      big: 'RM 150',
     }
   },
   {
@@ -112,8 +112,8 @@ export const foods = [
     },
     price: {
       small: 'RM 35',
-      medium: 'RM 42',
-      big: 'RM 50',
+      medium: 'RM 45',
+      big: 'RM 55',
     }
   },
   {
@@ -151,8 +151,8 @@ export const foods = [
     },
     price: {
       small: 'RM 20',
-      medium: 'RM 30',
-      big: 'RM 45',
+      medium: 'RM 35',
+      big: 'RM 50',
     },
   },
   {
