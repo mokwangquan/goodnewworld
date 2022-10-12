@@ -68,11 +68,34 @@ export default {
       this.openDrawer = false
     },
     handleGoTop() {
-      window.scrollTo(0, 0)
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      })
     },
     handleScrolling(id) {
-      window.scrollTo(0, 0)
-      setTimeout(() => document.getElementById(id).scrollIntoView(), 2);
+      window.scrollTo({
+        top: 0,
+        behavior: "auto"
+      })
+      // setTimeout(() => document.getElementById(id).scrollIntoView(true), 2);
+      setTimeout(() => {
+        const box = document.getElementById(id).getBoundingClientRect()
+  
+        const body = document.body
+        const docElem = document.documentElement
+  
+        const scrollTop = window.pageYOffset || docElem.scrollTop || body.scrollTop
+        const clientTop = docElem.clientTop || body.clientTop || 0
+  
+        const top = box.top + scrollTop - clientTop
+        console.log(box.top, scrollTop, clientTop)
+        console.log(top)
+        window.scrollTo({
+          top,
+          behavior: "smooth"
+        })
+      }, 10);
     },
     handleDelete(id) {
       this.$emit('remove', id)
@@ -91,7 +114,7 @@ export default {
     }
   },
   computed: {
-    isEnglish() {return this.language == 'english'},
+    isEnglish() { return this.language == 'english' },
   },
   watch: {
   }

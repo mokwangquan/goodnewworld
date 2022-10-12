@@ -113,10 +113,10 @@ export default {
 <style lang="scss">
 #food-container {
   .have-ordered {
-    &.small { background-color: rgba(129, 0, 0, 0.1); }
-    &.medium { background-color: rgba(129, 0, 0, 0.25); }
-    &.big { background-color: rgba(129, 0, 0, 0.4); }
-    background-color: rgba(129, 0, 0, 0.4);
+    &.small { background-color: rgba(255, 235, 175, 0.2); }
+    &.medium { background-color: rgba(255, 235, 175, 0.4); }
+    &.big { background-color: rgba(255, 235, 175, 0.8); }
+    background-color: rgba(255, 235, 175, 0.4);
   }
   .image-wrapper {
     height: 100%;
@@ -130,6 +130,7 @@ export default {
   .title {
     margin: 0;
     text-align: center;
+    font-size: 15px;
   }
 
   .description {

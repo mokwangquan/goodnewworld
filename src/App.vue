@@ -135,6 +135,7 @@ export default {
 #app {
   font-size: 1.5rem;
   position: relative;
+
   .action {
     z-index: 999;
     position: fixed;
@@ -180,5 +181,19 @@ export default {
       left: 30vw;
     }
   }
+  .language-selection {
+    margin-right: 1rem;
+    .el-radio-button {
+      margin: 0;
+      .el-radio-button__inner {
+        margin: 0;
+        padding: 13px 20px;
+      }
+    }
+  }
+}
+
+.el-message-box {
+  max-width: 90vw;
 }
 </style>

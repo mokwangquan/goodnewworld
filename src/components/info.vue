@@ -25,8 +25,9 @@
             v-model="date"
             type="date"
             format='yyyy-MMM-dd'
-            :placeholder="isEnglish ? 'Select date' : '请选择日期'">
-          </el-date-picker>
+            :placeholder="isEnglish ? 'Select date' : '请选择日期'"
+            @focus="e => e.blur()"
+          />
         </el-col>
         <el-col>
           <el-time-select
@@ -36,8 +37,9 @@
               step: '00:15',
               end: '22:30'
             }"
-            :placeholder="isEnglish ? 'Select time' : '请选择时间'">
-          </el-time-select>
+            :placeholder="isEnglish ? 'Select time' : '请选择时间'"
+            @focus="e => e.blur()"
+          />
         </el-col>
         <el-col>
           <div class="label">{{ isEnglish ? 'Name' : '名字' }}</div>
