@@ -9,7 +9,7 @@ export const foods = [
     price: {
       small: null,
       medium: null,
-      big: 'RM 350',
+      big: 'RM 360',
     }
   },
   {
@@ -48,7 +48,7 @@ export const foods = [
     price: {
       small: null,
       medium: 'RM 90',
-      big: 'RM 150',
+      big: 'RM 160',
     }
   },
   {
@@ -98,9 +98,9 @@ export const foods = [
       chinese: '妈蜜鸡',
     },
     price: {
-      small: 'RM 20',
-      medium: 'RM 30',
-      big: 'RM 45',
+      small: 'RM 22',
+      medium: 'RM 35',
+      big: 'RM 50',
     }
   },
   {
@@ -150,7 +150,7 @@ export const foods = [
       chinese: '家乡炸肉',
     },
     price: {
-      small: 'RM 20',
+      small: 'RM 22',
       medium: 'RM 35',
       big: 'RM 50',
     },
@@ -259,7 +259,7 @@ export const foods = [
     price: {
       small: 'RM 50',
       medium: 'RM 70',
-      big: 'RM 90',
+      big: 'RM 100',
     },
   },
   {
@@ -308,8 +308,8 @@ export const foods = [
     },
     price: {
       small: 'RM 50',
-      medium: 'RM 80',
-      big: 'RM 120',
+      medium: 'RM 90',
+      big: 'RM 150',
     },
   },
   {
@@ -343,7 +343,7 @@ export const foods = [
     price: {
       small: 'RM 30',
       medium: 'RM 60',
-      big: 'RM 80',
+      big: 'RM 100',
     },
   },
   {
@@ -369,7 +369,7 @@ export const foods = [
     price: {
       small: 'RM 30',
       medium: 'RM 60',
-      big: 'RM 80',
+      big: 'RM 100',
     },
   },
   {
@@ -380,9 +380,9 @@ export const foods = [
       chinese: '蜜汁子酱鸡',
     },
     price: {
-      small: 'RM 20',
-      medium: 'RM 30',
-      big: 'RM 45',
+      small: 'RM 22',
+      medium: 'RM 35',
+      big: 'RM 50',
     },
   },
   {
