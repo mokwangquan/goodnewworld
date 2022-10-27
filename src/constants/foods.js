@@ -231,9 +231,9 @@ export const foods = [
       chinese: '招牌蚝面',
     },
     price: {
-      small: 'RM 16',
-      medium: 'RM 22',
-      big: 'RM 30',
+      small: 'RM 18',
+      medium: 'RM 25',
+      big: 'RM 35',
     },
   },
   {
@@ -393,9 +393,9 @@ export const foods = [
       chinese: '芭蕉鸡',
     },
     price: {
-      small: 'RM 20',
-      medium: 'RM 30',
-      big: 'RM 45',
+      small: 'RM 22',
+      medium: 'RM 35',
+      big: 'RM 50',
     },
   },
 ]
