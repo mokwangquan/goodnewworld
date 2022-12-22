@@ -307,8 +307,8 @@ export const foods = [
       chinese: '什锦海味煲',
     },
     price: {
-      small: 'RM 50',
-      medium: 'RM 90',
+      small: 'RM 80',
+      medium: 'RM 120',
       big: 'RM 150',
     },
   },
