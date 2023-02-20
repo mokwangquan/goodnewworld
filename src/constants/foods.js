@@ -34,8 +34,8 @@ export const foods = [
     },
     price: {
       small: 'RM 40',
-      medium: 'RM 65',
-      big: 'RM 130',
+      medium: 'RM 70',
+      big: 'RM 140',
     }
   },
   {
@@ -320,9 +320,9 @@ export const foods = [
       chinese: '冬菇海参海芦笋',
     },
     price: {
-      small: 'RM 50',
-      medium: 'RM 80',
-      big: 'RM 120',
+      small: 'RM 60',
+      medium: 'RM 90',
+      big: 'RM 130',
     },
   },
   {
