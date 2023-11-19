@@ -320,9 +320,9 @@ export const foods = [
       chinese: '冬菇海参海芦笋',
     },
     price: {
-      small: 'RM 60',
-      medium: 'RM 90',
-      big: 'RM 130',
+      small: 'RM 80',
+      medium: 'RM 120',
+      big: 'RM 150',
     },
   },
   {
