@@ -1,6 +1,5 @@
 export const foods = [
   {
-    id: 1,
     type: 'pork',
     name: {
       english: 'Suckling Pig (Whole)',
@@ -13,7 +12,6 @@ export const foods = [
     }
   },
   {
-    id: 2,
     type: 'chicken',
     name: {
       english: 'Curry Chicken Pie',
@@ -26,7 +24,6 @@ export const foods = [
     }
   },
   {
-    id: 3,
     type: 'soup',
     name: {
       english: 'Hainan Mutton Soup',
@@ -39,7 +36,6 @@ export const foods = [
     }
   },
   {
-    id: 4,
     type: 'other',
     name: {
       english: 'Cold Dish',
@@ -52,7 +48,6 @@ export const foods = [
     }
   },
   {
-    id: 5,
     type: 'chicken',
     name: {
       english: 'Sesame Chicken',
@@ -65,7 +60,6 @@ export const foods = [
     }
   },
   {
-    id: 6,
     type: 'chicken',
     name: {
       english: 'Cripsy Roasted Chicken',
@@ -78,7 +72,6 @@ export const foods = [
     }
   },
   {
-    id: 7,
     type: 'chicken',
     name: {
       english: 'Steamed Chicken with Chinese Wine and Herbs',
@@ -91,7 +84,6 @@ export const foods = [
     }
   },
   {
-    id: 8,
     type: 'chicken',
     name: {
       english: 'Marmite Chicken',
@@ -104,7 +96,6 @@ export const foods = [
     }
   },
   {
-    id: 9,
     type: 'pork',
     name: {
       english: 'Pork Ribs in Yam Ring',
@@ -117,7 +108,6 @@ export const foods = [
     }
   },
   {
-    id: 10,
     type: 'pork',
     name: {
       english: 'Stewed Slice Pork with Bun',
@@ -130,7 +120,6 @@ export const foods = [
     },
   },
   {
-    id: 11,
     type: 'pork',
     name: {
       english: 'Pork Knuckle',
@@ -143,7 +132,6 @@ export const foods = [
     },
   },
   {
-    id: 12,
     type: 'pork',
     name: {
       english: 'Delicious Fried Meat with Sauce',
@@ -156,7 +144,6 @@ export const foods = [
     },
   },
   {
-    id: 13,
     type: 'fish',
     name: {
       english: 'Tom Yam Zinah Fish',
@@ -164,7 +151,6 @@ export const foods = [
     },
   },
   {
-    id: 14,
     type: 'fish',
     name: {
       english: 'Sweet and Sour Fresh Fish',
@@ -172,7 +158,6 @@ export const foods = [
     },
   },
   {
-    id: 15,
     type: 'toufu',
     name: {
       english: 'Deep Fried Favorite Bean Curd',
@@ -185,7 +170,6 @@ export const foods = [
     },
   },
   {
-    id: 16,
     type: 'toufu',
     name: {
       english: 'Sizzling Hot Plate Bean Curd',
@@ -198,7 +182,6 @@ export const foods = [
     },
   },
   {
-    id: 17,
     type: 'vege',
     name: {
       english: 'Stir Fried Lotus Root with Zinkgo',
@@ -211,7 +194,6 @@ export const foods = [
     },
   },
   {
-    id: 18,
     type: 'vege',
     name: {
       english: 'Green Dragon Vege with Slice Garlic',
@@ -224,7 +206,6 @@ export const foods = [
     },
   },
   {
-    id: 19,
     type: 'carbo',
     name: {
       english: 'Signature Oyster Mee',
@@ -237,7 +218,6 @@ export const foods = [
     },
   },
   {
-    id: 20,
     type: 'carbo',
     name: {
       english: 'Fried Mee Sue (Dry)',
@@ -250,7 +230,6 @@ export const foods = [
     },
   },
   {
-    id: 21,
     type: 'other',
     name: {
       english: "Fried Sharks Fin with Scramble Egg",
@@ -263,7 +242,6 @@ export const foods = [
     },
   },
   {
-    id: 22,
     type: 'fish',
     name: {
       english: 'Steamboat with Fresh Fish',
@@ -271,7 +249,6 @@ export const foods = [
     },
   },
   {
-    id: 23,
     type: 'fish',
     name: {
       english: 'Pomfret Fish with Three Varieties',
@@ -279,7 +256,6 @@ export const foods = [
     },
   },
   {
-    id: 24,
     type: 'fish',
     name: {
       english: 'Steamed Cod Fish with Soya Sauce',
@@ -287,7 +263,6 @@ export const foods = [
     },
   },
   {
-    id: 25,
     type: 'toufu',
     name: {
       english: 'Fried Bean Curd with Scallop',
@@ -300,7 +275,6 @@ export const foods = [
     },
   },
   {
-    id: 26,
     type: 'other',
     name: {
       english: 'Pat Poh Sea Cucumber in Claypot',
@@ -313,7 +287,6 @@ export const foods = [
     },
   },
   {
-    id: 27,
     type: 'other',
     name: {
       english: 'Sea Cucumber Mushroom with Sea Asparagus',
@@ -326,7 +299,6 @@ export const foods = [
     },
   },
   {
-    // id: 28,
     // type: 'other',
     // name: {
     //   english: 'Poon Choy',
@@ -334,7 +306,6 @@ export const foods = [
     // },
   },
   {
-    id: 29,
     type: 'prawn',
     name: {
       english: 'Salad Prawns',
@@ -347,7 +318,6 @@ export const foods = [
     },
   },
   {
-    id: 30,
     type: 'carbo',
     name: {
       english: 'Moonlight Fried Kuah Tiew',
@@ -360,7 +330,6 @@ export const foods = [
     },
   },
   {
-    id: 32,
     type: 'chicken',
     name: {
       english: 'Fried Chicken Sliced in Honey Sauce',
@@ -373,7 +342,6 @@ export const foods = [
     },
   },
   {
-    id: 33,
     type: 'chicken',
     name: {
       english: 'Fried Chicken with Spicy Sauce',
