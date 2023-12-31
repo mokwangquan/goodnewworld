@@ -360,19 +360,6 @@ export const foods = [
     },
   },
   {
-    id: 31,
-    type: 'prawn',
-    name: {
-      english: 'Stir Fried Asparagus with Prawns',
-      chinese: '芦笋虾球',
-    },
-    price: {
-      small: 'RM 30',
-      medium: 'RM 60',
-      big: 'RM 100',
-    },
-  },
-  {
     id: 32,
     type: 'chicken',
     name: {
