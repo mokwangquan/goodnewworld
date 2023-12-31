@@ -37,7 +37,7 @@
         :language="language"
         :remove="removeId"
         @sizeChange="handleSizeChange"
-        />
+      />
       </template>
       
     </div>

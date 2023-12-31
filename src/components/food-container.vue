@@ -5,8 +5,15 @@
       <el-row type="flex" justify="space-between" align="center">
         <el-col v-if="haveImage(id)">
           <div class="image-wrapper">
-            <img fit="contain" :src="getImgUrl(id)"
-              class="image"/>
+            <el-image 
+              fit="contain" 
+              :src="getImgUrl(id)"
+              class="image"
+            >
+              <div slot="error" class="image-slot">
+                <i class="el-icon-food"/>
+              </div>
+            </el-image>
           </div>
         </el-col>
         <el-divider class="vertical" direction="vertical"></el-divider>
@@ -67,8 +74,10 @@ export default {
   },
   methods: {
     getImgUrl(id) {
-      let images = require.context('../assets/foods/', false, /\.jpeg$/)
-      return images('./' + id + ".jpeg")
+      try {
+        let images = require.context('../assets/foods/', false, /\.jpeg$/)
+        return images('./' + id + ".jpeg")
+      } catch (e) { }
     },
     haveImage() {
       // const url = `../assets/foods/${id}.jpeg`
@@ -124,6 +133,13 @@ export default {
     align-items: center;
     .image {
       width: 100%;
+    }
+    .image-slot {
+      display: flex;
+      justify-content: center;
+    }
+    .el-icon-food {
+      font-size: 3rem;
     }
   }
 
