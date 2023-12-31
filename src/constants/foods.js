@@ -274,8 +274,8 @@ export const foods = [
     id: 23,
     type: 'fish',
     name: {
-      english: 'Pomfret Fish with Three Varieties',
-      chinese: '三味鲳鱼',
+      english: 'Steamed Jernah Fish with oil',
+      chinese: '油蒸仁那鱼',
     },
   },
   {
@@ -381,7 +381,7 @@ export const foods = [
     id: 34,
     type: 'fish',
     name: {
-      english: 'Steamed Pomfret Fish with oil',
+      english: 'Steamed Pomfret Fish',
       chinese: '清蒸鲳鱼',
     },
   },
