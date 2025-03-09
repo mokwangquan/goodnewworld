@@ -111,9 +111,9 @@ export const foods = [
       chinese: '芋头圈排骨王',
     },
     price: {
-      small: 'RM 35',
-      medium: 'RM 45',
-      big: 'RM 55',
+      small: 'RM 38',
+      medium: 'RM 48',
+      big: 'RM 58',
     }
   },
   {
@@ -231,8 +231,8 @@ export const foods = [
       chinese: '招牌蚝面',
     },
     price: {
-      small: 'RM 18',
-      medium: 'RM 25',
+      small: 'RM 20',
+      medium: 'RM 28',
       big: 'RM 35',
     },
   },
@@ -244,9 +244,9 @@ export const foods = [
       chinese: '干炒面线',
     },
     price: {
-      small: 'RM 15',
-      medium: 'RM 20',
-      big: 'RM 25',
+      small: 'RM 18',
+      medium: 'RM 22',
+      big: 'RM 28',
     },
   },
   {
