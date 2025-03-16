@@ -346,9 +346,9 @@ export const foods = [
       chinese: '月光河',
     },
     price: {
-      small: 'RM 15',
-      medium: 'RM 20',
-      big: 'RM 25',
+      small: 'RM 18',
+      medium: 'RM 22',
+      big: 'RM 28',
     },
   },
   {
@@ -471,9 +471,9 @@ export const foods = [
       chinese: '滑蛋河',
     },
     price: {
-      small: "RM 16",
-      medium: "RM 20",
-      big: "RM 25",
+      small: "RM 18",
+      medium: "RM 22",
+      big: "RM 28",
     }
   },
   {
@@ -484,9 +484,9 @@ export const foods = [
       chinese: '炒饭',
     },
     price: {
-      small: "RM 16",
-      medium: "RM 20",
-      big: "RM 25",
+      small: "RM 18",
+      medium: "RM 22",
+      big: "RM 28",
     }
   },
   {
