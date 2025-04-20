@@ -8,7 +8,7 @@ export const foods = [
     },
     price: {
       small: null,
-      medium: null,
+      medium: 'RM 200',
       big: 'RM 390',
     }
   },
@@ -323,19 +323,6 @@ export const foods = [
       small: 'RM 80',
       medium: 'RM 120',
       big: 'RM 150',
-    },
-  },
-  {
-    id: 29,
-    type: 'prawn',
-    name: {
-      english: 'Salad Prawns',
-      chinese: '沙律虾',
-    },
-    price: {
-      small: 'RM 30',
-      medium: 'RM 60',
-      big: 'RM 100',
     },
   },
   {
