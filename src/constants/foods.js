@@ -21,7 +21,20 @@ export const foods = [
     },
     price: {
       small: null,
-      medium: 'RM 48',
+      medium: 'RM 50',
+      big: null,
+    }
+  },
+  {
+    id: 47,
+    type: 'pork',
+    name: {
+      english: 'Curry Pork Rib Pie',
+      chinese: '咖喱排骨脆派',
+    },
+    price: {
+      small: null,
+      medium: 'RM 58',
       big: null,
     }
   },
@@ -47,8 +60,8 @@ export const foods = [
     },
     price: {
       small: null,
-      medium: 'RM 100',
-      big: 'RM 180',
+      medium: 'RM 120',
+      big: 'RM 200',
     }
   },
   {
@@ -60,8 +73,8 @@ export const foods = [
     },
     price: {
       small: null,
-      medium: 'RM 30',
-      big: 'RM 60',
+      medium: 'RM 34',
+      big: 'RM 68',
     }
   },
   {
